@@ -40,6 +40,8 @@ app.get("/test-download-speed", (request, res) => {
   res.send(genContent(numBytes));
 });
 
+app.use(express.raw({ type: '*/*', limit: '50mb' }));
+
 app.post("/test-upload-speed", (request, res) => {
   const reqTime = new Date();
 
